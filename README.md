@@ -1,4 +1,4 @@
-# quran-db
+# Quran API for Go
 
 <p align="center">
   <img src="mascot.webp" width="256" height="256" alt="Mascot">
