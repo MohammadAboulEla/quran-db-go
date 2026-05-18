@@ -59,7 +59,7 @@ func main() {
 | --- | --- |
 | `NewQuranManager(dbPath string)` | Open the SQLite DB (sets WAL + 64MB cache pragmas). |
 | `Close()` | Close the underlying connection. |
-| `GetQuranInfo()` | Constants: 6236 verses, 114 suras, 30 juzs, 60 hizbs, 604 pages, 558 rukus. |
+| `GetQuranInfo()` | Constants: 6236 verses, 114 suras, 30 juzs, 60 hizbs. |
 
 ### Suras
 
@@ -119,3 +119,11 @@ go test ./quran
 ## License
 
 See repository root.
+
+---
+
+_Wait for more..._
+
+Support me on PayPal
+
+[![Donate](https://img.shields.io/badge/Support-PayPal-blue.svg)](https://paypal.me/mohammadmoustafa1)

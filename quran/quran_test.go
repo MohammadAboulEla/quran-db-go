@@ -73,7 +73,7 @@ func TestNewQuranManager(t *testing.T) {
 
 func TestGetQuranInfo(t *testing.T) {
 	qf := testQM.GetQuranInfo()
-	if qf.TotalVerses != 6236 || qf.TotalSuras != 114 || qf.TotalJuzs != 30 || qf.TotalHizbs != 60 || qf.TotalPages != 604 || qf.TotalRukus != 558 {
+	if qf.TotalVerses != 6236 || qf.TotalSuras != 114 || qf.TotalJuzs != 30 || qf.TotalHizbs != 60 {
 		t.Errorf("incorrect quran info: %+v", qf)
 	}
 }

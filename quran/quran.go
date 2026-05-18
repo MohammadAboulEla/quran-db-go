@@ -73,8 +73,6 @@ type QuranInfo struct {
 	TotalSuras  int
 	TotalJuzs   int
 	TotalHizbs  int
-	TotalPages  int
-	TotalRukus  int
 }
 
 func NewQuranManager(dbPath string) (*QuranManager, error) {
@@ -103,8 +101,6 @@ func NewQuranManager(dbPath string) (*QuranManager, error) {
 		TotalSuras:  114,
 		TotalJuzs:   30,
 		TotalHizbs:  60,
-		TotalPages:  604,
-		TotalRukus:  558,
 	}
 
 	// Return an instance of our QuranManager holding the db connection
