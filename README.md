@@ -1,5 +1,9 @@
 # quran-db
 
+<p align="center">
+  <img src="mascot.webp" width="256" height="256" alt="Mascot">
+</p>
+
 A small Go library for querying a SQLite database of the Holy Quran (114 suras, 6236 ayas) with two Arabic tafseers (Muyassar and Sa'di), plus juz and hizb metadata.
 
 Uses the pure-Go [`modernc.org/sqlite`](https://pkg.go.dev/modernc.org/sqlite) driver — **no CGo, no system SQLite required**.
