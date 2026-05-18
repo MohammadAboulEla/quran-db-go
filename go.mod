@@ -1,4 +1,4 @@
-module quran-db
+module github.com/MohammadAboulEla/quran-db-go
 
 go 1.26.2
 

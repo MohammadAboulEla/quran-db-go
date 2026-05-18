@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"log"
 
-	. "quran-db/quran"
+	"github.com/MohammadAboulEla/quran-db-go/quran"
 )
 
 func main() {
-	qm, err := NewQuranManager("quran/quran.db")
+	qm, err := quran.NewQuranManager("quran/quran.db")
 	if err != nil {
 		log.Fatal(err)
 	}

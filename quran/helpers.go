@@ -2,12 +2,13 @@ package quran
 
 import "fmt"
 
-// PrintTableSamples بيطبع أول 5 صفوف من جدولي السور والآيات
+// PrintTableSamples prints the first 5 rows of the suras and verses tables.
+// Useful as a quick sanity check that the DB is reachable and schema matches.
 func (qm *QuranManager) PrintTableSamples() error {
 	fmt.Println("================================================")
 	fmt.Println("SURAS TABLE (FIRST 5 ROWS)")
 	fmt.Println("================================================")
-	
+
 	suraRows, err := qm.db.Query("SELECT id, name, type, total_verses FROM suras LIMIT 5")
 	if err != nil {
 		return fmt.Errorf("error querying suras: %w", err)
@@ -41,27 +42,24 @@ func (qm *QuranManager) PrintTableSamples() error {
 	for verseRows.Next() {
 		var id, suraNum int
 		var textSimple, tafseerMuasr, hizbText, juzText string
-		err := verseRows.Scan(&id, &textSimple, &tafseerMuasr, &hizbText, &juzText, &suraNum)
-		if err != nil {
+		if err := verseRows.Scan(&id, &textSimple, &tafseerMuasr, &hizbText, &juzText, &suraNum); err != nil {
 			return fmt.Errorf("error scanning verse row: %w", err)
 		}
-
-		// قص النصوص الطويلة عشان شكل الطباعة في الـ Terminal ميبوظش
+		// Truncate long Arabic text so the terminal layout stays aligned.
 		shortText := limitString(textSimple, 25)
 		shortTafseer := limitString(tafseerMuasr, 25)
-
-		fmt.Printf("%-5d | %-5d | %-10s | %-10s | %-30s | %-30s\n", 
+		fmt.Printf("%-5d | %-5d | %-10s | %-10s | %-30s | %-30s\n",
 			id, suraNum, juzText, hizbText, shortText, shortTafseer)
 	}
 
 	return nil
 }
 
-// فانكشن مساعدة لقص النصوص الطويلة
+// limitString truncates s to at most maxLen runes (not bytes), adding "..." if cut.
 func limitString(s string, maxLen int) string {
 	runes := []rune(s)
 	if len(runes) <= maxLen {
 		return s
 	}
-	return string(runes [:maxLen-3]) + "..."
+	return string(runes[:maxLen-3]) + "..."
 }

@@ -7,8 +7,8 @@ Uses the pure-Go [`modernc.org/sqlite`](https://pkg.go.dev/modernc.org/sqlite) d
 ## Install
 
 ```bash
-git clone https://github.com/<you>/quran-db
-cd quran-db
+git clone https://github.com/MohammadAboulEla/quran-db-go
+cd quran-db-go
 go build ./...
 ```
 
@@ -23,11 +23,11 @@ import (
     "fmt"
     "log"
 
-    . "quran-db/quran"
+    "github.com/MohammadAboulEla/quran-db-go/quran"
 )
 
 func main() {
-    qm, err := NewQuranManager("quran/quran.db")
+    qm, err := quran.NewQuranManager("quran/quran.db")
     if err != nil {
         log.Fatal(err)
     }
